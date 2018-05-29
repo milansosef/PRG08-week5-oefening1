@@ -14,8 +14,8 @@
 
 ## Opdracht 1
 
-- Maak van de chicken een observable, zie UML
-- Maak van de zombies observers, zie UML
+- Maak van de chicken een Subject, zie UML
+- Maak van de zombies Observers, zie UML
 - De zombies abbonneren zich op de chicken zodra ze aangemaakt worden
 - Als je op de kip klikt stuurt hij een notificatie naar alle zombies
 - Als de zombies een notificatie krijgen stoppen ze met bewegen en krijgen ze de andere zombie texture
