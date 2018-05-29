@@ -32,30 +32,47 @@
 - Het aantal telefoontjes dat je hebt opgepakt, bepaalt hoe vaak je op de kip mag klikken om de zombies een berichtje te sturen
 - Gebruik de 'removeFromGame' functie in util om graan en telefoons uit de game te verwijderen
 
+## Observer Pattern
+
+Dit code voorbeeld toont een Observer Pattern met een Shop en een User.
+
+Een User krijgt als argument de shop binnen, zodat de user zich kan subscriben op de shop.
+De Shop houdt een lijst van Users bij. Als er iets verandert in de Shop, dan krijgen alle users een notificatie.
+
+```
+interface Observer {
+    notify():void
+}
+
+interface Subject {
+    observers:Observer[]
+    subscribe(o:Observer):void
+    unsubscribe(o:Observer):void
+}
+
+class User implements Observer {
+    constructor(s:Subject){
+        s.subscribe(this)
+    }
+    notify(){
+        console.log("I got an update from the shop!")
+    }
+}
+
+class Shop implements Subject {
+    private observers:Observer[]
+    public subscribe(o:Observer):void {
+        this.observers.push(o)
+    }
+    public unsubscribe(o:Observer):void {
+        // remove o from this.observers
+    }
+    
+}
 ## UML Observer pattern
 
 ![UML](docs/images/observer.png?raw=true "UML")
 
-### Voorbeeldcode Observer
-
-```
-interface Observer {
-    notify():void;
-}
-
-interface Observable {
-    observers:Array<Observer>;
-    subscribe(o:Observer):void;
-    unsubscribe(o:Observer):void;
-}
-
-class Zombie implements Observer {
-    //...
-}
-
-class Chicken implements Observable {
-    //...
-}
 ```
 
 ### Texture veranderen
