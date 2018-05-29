@@ -69,11 +69,11 @@ class Shop implements Subject {
     }
     
 }
+```
 ## UML Observer pattern
 
 ![UML](docs/images/observer.png?raw=true "UML")
 
-```
 
 ### Texture veranderen
 
